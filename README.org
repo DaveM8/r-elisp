@@ -1,5 +1,5 @@
 * r-elisp  
-  A set of functions for healping work with R in emacs
+  A set of functions for helping work with R in Emacs
 
 ** names-to-c
   A elisp function to take the output of R's names function and converted it to a comma separated list.
