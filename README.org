@@ -1,0 +1,19 @@
+* names-to-c
+  A elisp function to take the output of R's names function and converted it to a comma seperated list.
+
+From
+ [1] "pickup_ad_dist" "pickup_ed_dist" "pickup_hour"    "pickup_day"    
+ [5] "pickup_month"   "avg_total"      "sd_total"       "total_amt"     
+ [9] "avg_tip"        "sd_tip"         "total_tip"      "num_trips"     
+
+To
+
+pickup_ad_dist, pickup_ed_dist, pickup_hour, pickup_day, pickup_month, avg_total, sd_total, total_amt, avg_tip, sd_tip, total_tip, num_trips, 
+
+* TODO
+** it still sometines leaves a trailing comma fix this
+** I belive this could be done with just one regexp 
+   Maybe this would be better because it would be more efficent but this function will not really be used much very large lists of names.
+
+   Using just one regexp may result in ti being more compleax for little run speed benfit.
+
