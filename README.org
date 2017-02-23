@@ -1,19 +1,18 @@
 * names-to-c
   A elisp function to take the output of R's names function and converted it to a comma separated list.
 
-From
-
 #+BEGIN_SRC R
+## FROM
    [1] "pickup_ad_dist" "pickup_ed_dist" "pickup_hour"    "pickup_day"    
    [5] "pickup_month"   "avg_total"      "sd_total"       "total_amt"     
    [9] "avg_tip"        "sd_tip"         "total_tip"      "num_trips"     
 
-
+## TO
   pickup_ad_dist, pickup_ed_dist, pickup_hour, pickup_day, pickup_month, avg_total, sd_total, total_amt, avg_tip, sd_tip, total_tip, num_trips, 
 
 #+END_SRC
 
-To
+
 
 * TO DO
 ** it still sometimes leaves a trailing comma fix this
