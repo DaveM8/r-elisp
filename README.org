@@ -18,7 +18,6 @@
 
 
 ** TO DO
-*** it still sometimes leaves a trailing comma fix this
 *** I believe this could be done with just one regexp 
    Maybe this would be better because it would be more efficient but this function will not really be used much very large lists of names.
 
