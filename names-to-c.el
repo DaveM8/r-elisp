@@ -16,7 +16,6 @@
 ;; pickup_ad_dist, pickup_ed_dist, pickup_hour, pickup_day, pickup_month, avg_total, sd_total, total_amt, avg_tip, sd_tip, total_tip, num_trips,
 
 ;; TODO
-;; there's still a traling comma
 ;; I Think this could all be don't with just one regexp
 
 (defun names-to-c (start-point end-point)
@@ -59,8 +58,8 @@
       (while (re-search-forward
 	      "^," nil t)
 	(replace-match ""))
-      (goto-char (point-max))
+      (goto-char (point-min))
       ;;remove traling , and any traling white-space
       (while (re-search-forward
-	      ",\s?$" nil t)
+	      ",[[:space:]]*?$" nil t)
 	(replace-match "")))))
