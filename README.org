@@ -1,6 +1,63 @@
 * r-elisp  
   A set of functions for helping work with R in Emacs
 
+** ess-eval-pipe
+   An elisp function to eval a multi-line R statement linked together with magrittr forward pipe operator %>% and other operators such a , and + which you can use to split long lines into multi-line statements.
+
+   ess-eval-pipe also works the same a ess-eval-line it just ends selecting the start and end of a line. After I (We) have tested this in the wild I would like to do a pull request  and have it put into ESS.
+
+*** To Do
+    Test and Test some more
+
+#+BEGIN_SRC R
+## ess-eval-pipe will correctly select and eval the following miltistatment
+## you can run M-x ess-eval-pipe (or bind it to C-c C-j) anywhere in the 
+## statement 
+
+
+## order the factors so they appear in the legend in a sinsibal order
+people_per_house %>%
+    arrange(person_per_house) %>%
+    filter(persons_per_household !=
+           "All persons in private households" ,
+           persons_per_household !=
+           "All private households") %>%
+    ggplot(aes(x=as.factor(person_per_house),
+               y=value,
+               fill =persons_per_household ))+
+    geom_bar(stat="identity", position="dodge") +
+    scale_y_continuous(labels = comma) +
+    ggtitle("Number of Persons Per Household, Ireland (Census 2011)") +
+    ylab("Number of Households") + xlab("Number of Persons per Household")
+
+
+## ess-eval-pipe will fail on the next miltistatment because
+## the , are at the start of the line so there is no way of 
+## knowing if the lines are a continuation 
+
+
+people_per_house$persons_per_household <-
+    factor(people_per_house$persons_per_household,
+           levels=c(
+               "Persons - 1 person household"         
+             , "Persons - 2 person household"         
+             , "Persons - 3 person household"         
+             , "Persons - 4 person household"         
+             , "Persons - 5  person household"        
+             , "Persons - 6 person household"         
+             , "Persons - 7 person household"         
+             , "Persons - 8 person household"         
+             , "Persons - 9 person household"         
+             , "Persons - 10 person household"        
+             , "Persons - 11 person household"        
+             , "Persons - 12 or more person household"
+             , "All persons in private households"    
+             , "All private households"))
+
+
+#+END_SRC
+
+
 ** names-to-c
   A elisp function to take the output of R's names function and converted it to a comma separated list.
 
