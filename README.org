@@ -15,7 +15,6 @@
 ## statement 
 
 
-## order the factors so they appear in the legend in a sinsibal order
 people_per_house %>%
     arrange(person_per_house) %>%
     filter(persons_per_household !=
@@ -31,11 +30,11 @@ people_per_house %>%
     ylab("Number of Households") + xlab("Number of Persons per Household")
 
 
-## ess-eval-pipe will fail on the next miltistatment because
+## ess-eval-pipe will fail on the next multi-line statment because
 ## the , are at the start of the line so there is no way of 
 ## knowing if the lines are a continuation 
 
-
+## order the factors so they appear in the legend in a sensible order
 people_per_house$persons_per_household <-
     factor(people_per_house$persons_per_household,
            levels=c(
