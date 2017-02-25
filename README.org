@@ -1,5 +1,8 @@
 * r-elisp  
   A set of functions for helping work with R in Emacs
+  To try out one of these functions open the .el file place the point after last ) and the press C-x C-e. To Install the functions paste the function into your .emacs file and it will be avalible every time you start emacs.
+
+
 
 ** ess-eval-pipe
    An elisp function to eval a multi-line R statement linked together with magrittr forward pipe operator %>% and other operators such a , and + which you can use to split long lines into multi-line statements.
